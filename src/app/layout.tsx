@@ -14,11 +14,13 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://meetsudip.me'),
   title: "Sudip S Jamwal",
   description: "Product | Strategy | Growth",
   keywords: ["Product Manager", "Strategy", "Growth", "Portfolio"],
   authors: [{ name: "Sudip S Jamwal" }],
-  openGraph: {
+  openGraph:
+  {
     title: "Sudip S Jamwal",
     description: "Product | Strategy | Growth",
     url: "https://meetsudip.me",
@@ -34,11 +36,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/favicon.svg', type: 'image/svg+xml' },
     ],
     shortcut: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
   manifest: '/site.webmanifest',
   appleWebApp: {
