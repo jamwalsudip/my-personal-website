@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Mail } from 'lucide-react'
-import { FaLinkedin, FaSquareXTwitter, FaSquareGithub } from 'react-icons/fa6'
+import { FaLinkedin, FaSquareXTwitter, FaSquareGithub , FaSquareInstagram } from 'react-icons/fa6'
 
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <Link href="/" className="text-xl font-bold text-gray-800">
-                Your Name
+                Sudip S Jamwal
               </Link>
             </div>
             <div className="hidden md:flex items-center space-x-8">
@@ -29,7 +29,7 @@ export default function Home() {
       {/* Hero Section */}
       <header className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="relative w-32 h-32 mx-auto mb-6">
+          <div className="relative w-60 h-60 mx-auto mb-6">
             <Image
               src="/profile.jpg"
               alt="Profile"
@@ -38,20 +38,24 @@ export default function Home() {
               priority
             />
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">Your Name</h1>
-          <p className="text-xl text-gray-600 mb-6">Your Title or Tagline</p>
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">Sudip S Jamwal</h1>
+          <p className="text-xl text-gray-600 mb-6">Product | Strategy | Growth</p>
           <div className="flex justify-center space-x-6">
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.linkedin.com/in/meetsudip/" target="_blank" rel="noopener noreferrer"
                className="text-gray-600 hover:text-blue-600">
               <FaLinkedin className="w-10 h-10" />
             </a>
-            <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer"
+            <a href="https://x.com/JamwalSudip" target="_blank" rel="noopener noreferrer"
                className="text-gray-600 hover:text-blue-600">
               <FaSquareXTwitter className="w-10 h-10" />
             </a>
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" 
+            <a href="https://github.com/jamwalsudip" target="_blank" rel="noopener noreferrer" 
                className="text-gray-600 hover:text-blue-600">
               <FaSquareGithub className="w-10 h-10" />
+            </a>
+            <a href="https://www.linkedin.com/in/meetsudip/" target="_blank" rel="noopener noreferrer"
+               className="text-gray-600 hover:text-blue-600">
+              <FaSquareInstagram className="w-10 h-10" />
             </a>
           </div>
         </div>
@@ -134,7 +138,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-gray-50 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600">
-          <p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Sudip S Jamwal. All rights reserved.</p>
         </div>
       </footer>
     </main>
