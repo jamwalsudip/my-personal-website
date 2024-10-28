@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { GithubIcon, LinkedinIcon, Mail } from 'lucide-react'
+import { Mail } from 'lucide-react'
 import { FaLinkedin, FaSquareXTwitter, FaSquareGithub } from 'react-icons/fa6'
 
 
