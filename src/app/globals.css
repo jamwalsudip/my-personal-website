@@ -14,11 +14,19 @@
   }
 }
 
+/* globals.css or styles.css */
+body {
+  @apply bg-black; /* Tailwind CSS utility */
+  font-family: var(--font-effra);
+}
+
+/*
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-effra);
 }
+*/
 
 /* Weight/style combinations */
 .effra-light {
