@@ -40,29 +40,11 @@ export default function Home() {
           </div>
           <h1 className="text-4xl font-bold text-white mb-2">Sudip S Jamwal</h1>
           <p className="text-xl text-gray-300 mb-6">Product | Strategy | Growth</p>
-          <div className="flex justify-center space-x-6">
-            <a href="https://www.linkedin.com/in/meetsudip/" target="_blank" rel="noopener noreferrer"
-               className="text-gray-300 hover:text-blue-400">
-              <FaLinkedin className="w-10 h-10" />
-            </a>
-            <a href="https://x.com/JamwalSudip" target="_blank" rel="noopener noreferrer"
-               className="text-gray-300 hover:text-blue-400">
-              <FaSquareXTwitter className="w-10 h-10" />
-            </a>
-            <a href="https://github.com/jamwalsudip" target="_blank" rel="noopener noreferrer" 
-               className="text-gray-300 hover:text-blue-400">
-              <FaSquareGithub className="w-10 h-10" />
-            </a>
-            <a href="https://www.instagram.com/shanusj28/" target="_blank" rel="noopener noreferrer"
-               className="text-gray-300 hover:text-blue-400">
-              <FaSquareInstagram className="w-10 h-10" />
-            </a>
-          </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* About Section */}
         <section id="about" className="mb-20">
           <h2 className="text-3xl font-bold mb-8 text-white">About Me</h2>
@@ -134,7 +116,24 @@ export default function Home() {
           </p>
         </section>
       </div>
-
+      <div className="flex justify-center space-x-6">
+            <a href="https://www.linkedin.com/in/meetsudip/" target="_blank" rel="noopener noreferrer"
+               className="text-gray-300 hover:text-blue-400">
+              <FaLinkedin className="w-10 h-10" />
+            </a>
+            <a href="https://x.com/JamwalSudip" target="_blank" rel="noopener noreferrer"
+               className="text-gray-300 hover:text-blue-400">
+              <FaSquareXTwitter className="w-10 h-10" />
+            </a>
+            <a href="https://github.com/jamwalsudip" target="_blank" rel="noopener noreferrer" 
+               className="text-gray-300 hover:text-blue-400">
+              <FaSquareGithub className="w-10 h-10" />
+            </a>
+            <a href="https://www.instagram.com/shanusj28/" target="_blank" rel="noopener noreferrer"
+               className="text-gray-300 hover:text-blue-400">
+              <FaSquareInstagram className="w-10 h-10" />
+            </a>
+          </div>
       {/* Footer */}
       <footer className="bg-black py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-300">
