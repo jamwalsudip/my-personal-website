@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Mail } from 'lucide-react'
-import { FaLinkedin, FaSquareXTwitter, FaSquareGithub, FaSquareInstagram } from 'react-icons/fa6'
+import { FaLinkedin, FaSquareXTwitter, FaSquareGithub, FaSquareInstagram, FaWhatsapp, FaTelegram } from 'react-icons/fa6'
 
 export default function Home() {
   return (
@@ -16,10 +16,10 @@ export default function Home() {
               </Link>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="#about" className="text-gray-300 hover:text-blue-400">About</Link>
-              <Link href="#projects" className="text-gray-300 hover:text-blue-400">Projects</Link>
-              <Link href="#experience" className="text-gray-300 hover:text-blue-400">Experience</Link>
-              <Link href="#contact" className="text-gray-300 hover:text-blue-400">Contact</Link>
+              <Link href="#projects" className="text-gray-300 hover:text-blue-400 transition-transform hover:scale-110">Projects</Link>
+              <Link href="/journey" className="text-gray-300 hover:text-blue-400 transition-transform hover:scale-110">Journey</Link>
+              <Link href="/experiences" className="text-gray-300 hover:text-blue-400 transition-transform hover:scale-110">Experience</Link>
+              <Link href="#contact" className="text-gray-300 hover:text-blue-400 transition-transform hover:scale-110">Contact</Link>
             </div>
           </div>
         </div>
@@ -101,16 +101,36 @@ export default function Home() {
       */}
 
       {/* Contact Section */}
-      <section id="contact" className="flex flex-col items-center">
+      <section id="contact" className="flex flex-col items-center space-y-6">
         <h2 className="text-3xl font-bold mb-8 text-white text-center">Contact</h2>
-        <p className="text-gray-300 flex items-center gap-2 text-center">
-          <Mail className="w-5 h-5" />
-          Wanna chat? &nbsp;&nbsp; Come
+        <div className="flex flex-col items-center space-y-2">
+          <p className="text-gray-300 flex items-center gap-2 text-center">
+            <Mail className="w-5 h-5" />
+            Wanna chat?
+          </p>
           <a href="mailto:sayhi@meetsudip.me" 
              className="text-blue-400 hover:underline">
-            sayhi@meetsudip.me
+            Come sayhi@meetsudip.me
           </a>
-        </p>
+        </div>
+        <div className="flex flex-col items-center space-y-2">
+          <p className="text-gray-300 text-center">Or connect with me over</p>
+          <div className="flex items-center space-x-8 relative">
+            <a href="https://wa.me/919419131762" target="_blank" rel="noopener noreferrer"
+               className="text-gray-300 hover:text-blue-400 flex items-center gap-2">
+              <FaWhatsapp className="w-6 h-6" />
+              <span>WhatsApp</span>
+            </a>
+            <a href="https://t.me/meetsudip" target="_blank" rel="noopener noreferrer"
+               className="text-gray-300 hover:text-blue-400 flex items-center gap-2">
+              <FaTelegram className="w-6 h-6" />
+              <span>Telegram</span>
+            </a>
+          </div>
+        </div>
+        <div className="relative w-full">
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-[280px] h-px bg-gray-700 my-6"></div>
+        </div>
       </section>
       </div>
 
