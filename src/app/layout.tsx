@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Analytics from "./google-analytics";
+import GoogleAnalytics from "./google-analytics";
 
 const effra = localFont({
   src: [
@@ -97,7 +97,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${effra.variable} antialiased bg-black`} style={{ scrollBehavior: 'smooth' }}>
-        <Analytics />
+        <GoogleAnalytics />
         {children}
       </body>
     </html>
