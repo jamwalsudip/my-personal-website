@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import GoogleAnalytics from "./google-analytics";
+import { Suspense } from "react";
 
 const effra = localFont({
   src: [
@@ -97,7 +98,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${effra.variable} antialiased bg-black`} style={{ scrollBehavior: 'smooth' }}>
-        <GoogleAnalytics />
+        <Suspense fallback={null}>
+          <GoogleAnalytics />
+        </Suspense>
         {children}
       </body>
     </html>
