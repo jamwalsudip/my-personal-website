@@ -1,50 +1,42 @@
-'use client';
-
 import Script from 'next/script';
-import { usePathname, useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
 
 const GA_MEASUREMENT_ID = 'G-HEQVMWMJNM';
 
-declare global {
-  interface Window {
-    dataLayer: any[];
-    gtag: (...args: any[]) => void;
-  }
-}
-
-function GoogleAnalyticsScript() {
-  return (
-    <Script id="google-analytics">
-      {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '${GA_MEASUREMENT_ID}');
-      `}
-    </Script>
-  );
-}
+const gaScript = `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '${GA_MEASUREMENT_ID}');
+`;
 
 export default function Analytics() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
-  useEffect(() => {
-    if (typeof window.gtag !== 'undefined') {
-      window.gtag('config', GA_MEASUREMENT_ID, {
-        page_path: pathname
-      });
-    }
-  }, [pathname, searchParams]);
-
   return (
     <>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         strategy="afterInteractive"
       />
-      <GoogleAnalyticsScript />
+      <Script id="ga-init" strategy="afterInteractive">
+        {gaScript}
+      </Script>
+      <Script id="ga-route-change" strategy="afterInteractive">
+        {`
+          let lastPath = window.location.pathname;
+          const handleRouteChange = () => {
+            const newPath = window.location.pathname;
+            if (newPath !== lastPath) {
+              gtag('config', '${GA_MEASUREMENT_ID}', { page_path: newPath });
+              lastPath = newPath;
+            }
+          };
+          window.addEventListener('popstate', handleRouteChange);
+          const pushState = history.pushState;
+          history.pushState = function() {
+            pushState.apply(history, arguments);
+            handleRouteChange();
+          };
+        `}
+      </Script>
     </>
   );
 }
