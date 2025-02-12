@@ -13,6 +13,19 @@ declare global {
   }
 }
 
+function GoogleAnalyticsScript() {
+  return (
+    <Script id="google-analytics">
+      {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${GA_MEASUREMENT_ID}');
+      `}
+    </Script>
+  );
+}
+
 export default function Analytics() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -30,13 +43,8 @@ export default function Analytics() {
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         strategy="afterInteractive"
-        onLoad={() => {
-          window.dataLayer = window.dataLayer || [];
-          window.gtag = function gtag(){window.dataLayer.push(arguments);}
-          window.gtag('js', new Date());
-          window.gtag('config', GA_MEASUREMENT_ID);
-        }}
       />
+      <GoogleAnalyticsScript />
     </>
   );
 }
