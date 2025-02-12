@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
+import Analytics from "./google-analytics";
 
 const effra = localFont({
   src: [
@@ -95,11 +95,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" style ={{ scrollBehavior: 'smooth', background: 'black' }}>
-      <body className={`${effra.variable} antialiased`}>
+    <html lang="en">
+      <body className={`${effra.variable} antialiased bg-black`} style={{ scrollBehavior: 'smooth' }}>
+        <Analytics />
         {children}
       </body>
-      <GoogleAnalytics />
     </html>
   );
 }
