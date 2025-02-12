@@ -1,37 +1,38 @@
 import Script from 'next/script';
 
-const GA_MEASUREMENT_ID = 'G-HEQVMWMJNM';
-
 export default function Analytics() {
   return (
     <>
-      <Script 
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        strategy="lazyOnload"
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-HEQVMWMJNM"
+        strategy="afterInteractive"
       />
-      <Script id="google-analytics" strategy="lazyOnload">
+      <Script id="google-analytics">
         {`
           window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
+          function gtag(){window.dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${GA_MEASUREMENT_ID}', {
-            page_path: window.location.pathname,
-            send_page_view: true
-          });
-          
-          // Track route changes
-          const handleRouteChange = function() {
-            gtag('config', '${GA_MEASUREMENT_ID}', {
-              page_path: window.location.pathname,
-              send_page_view: true
+          gtag('config', 'G-HEQVMWMJNM');
+
+          // Track page views
+          const handlePageView = () => {
+            gtag('event', 'page_view', {
+              page_path: window.location.pathname
             });
           };
 
-          // Track client-side route changes
-          if (typeof window !== 'undefined') {
-            window.addEventListener('pushstate', handleRouteChange);
-            window.addEventListener('popstate', handleRouteChange);
-          }
+          // Initial page view
+          handlePageView();
+
+          // Track route changes
+          const observer = new MutationObserver(() => {
+            handlePageView();
+          });
+
+          observer.observe(document.documentElement, {
+            subtree: true,
+            childList: true
+          });
         `}
       </Script>
     </>
